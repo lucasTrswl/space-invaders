@@ -11,6 +11,9 @@ style.css
     animation: background-defile 5s linear infinite;
 }
 
+body{
+    background: black;
+}
 @keyframes background-defile {
     from {
         background-position-y: 0px;
