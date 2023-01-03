@@ -35,6 +35,7 @@ h3 {
     width: 600px;
     height: 600px;
     background-color: black;
+    border-radius: 5px;
 }
 
 .grille img {
@@ -49,6 +50,13 @@ h3 {
     justify-content: center;
     flex-direction: row;
     margin-top: 10px;
+}
+
+.vaisseau{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 34px;
 }
 
 .tireur {
