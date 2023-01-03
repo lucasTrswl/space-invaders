@@ -36,7 +36,7 @@ h3 {
     width: 600px;
     height: 600px;
     background-color: black;
-    
+    border-radius: 5px;
 }
 
 
@@ -52,8 +52,13 @@ h3 {
     justify-content: center;
     flex-direction: row;
     margin-top: 10px;
-    
-    left: 0;
+}
+
+.vaisseau{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 34px;
 }
 
 .tireur {
