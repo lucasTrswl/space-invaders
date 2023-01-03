@@ -27,19 +27,23 @@ body{
 h3 {
     text-align: center;
     margin: 20px 0;
+    color: white;
+    
 }
-.grille div {
+.grille div img {
     width: 25px;
     height: 25px;
+    display: flex;
+    flex-direction: row;
 }
 .tireur {
-    background: url(ressources/vaisseau.png);
+    background: url(images/vaisseau.png);
     transform: rotate(180deg);
     background-position: center;
     background-size: contain;
 }
 .alien {
-    background: url(ressources/ennemies.png);
+    background: url(images/ennemies.png);
     background-position: center;
     background-size: contain;
 }
