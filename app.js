@@ -58,5 +58,8 @@ document.addEventListener('keydown', (e) => {
         // Change les coordonnées du paddle vu que l'on vient de le bouger
         vaisseau_coord = vaisseau.getBoundingClientRect();
     }
+    if (e.key == 'b') {
+        
+    }
 });
 
