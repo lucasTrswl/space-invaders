@@ -1,0 +1,1 @@
+var blocInvaders = document.getElementsByClassName("ligne1")
