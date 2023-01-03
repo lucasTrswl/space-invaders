@@ -12,7 +12,7 @@ style.css
 }
 
 body{
-    background: black;
+    color: black;
 }
 
 @keyframes background-defile {
@@ -26,16 +26,30 @@ body{
 
 h3 {
     text-align: center;
-    margin: 20px 0;
-    color: white;
-    
+    margin: 20px 0;    
 }
-.grille div img {
+
+
+.board{
+    width: 600px;
+    height: 600px;
+    background-color: black;
+}
+
+.grille img {
     width: 25px;
     height: 25px;
     display: flex;
     flex-direction: row;
 }
+
+.ligne1, .ligne2, .ligne3{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
 .tireur {
     background: url(images/vaisseau.png);
     transform: rotate(180deg);
