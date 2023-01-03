@@ -5,7 +5,7 @@ style.css
     border: 1px solid #000;
     width: 500px;
     height: 500px;
-    margin: 0 auto;
+    margin: auto;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     background: url(ressources/background-black.png);
     animation: background-defile 5s linear infinite;
@@ -31,7 +31,7 @@ h3 {
 
 
 .board{
-    margin-left: 28%;
+    margin: auto;
     width: 600px;
     height: 600px;
     background-color: black;
@@ -80,4 +80,17 @@ h3 {
 }
 .laser {
     background-color: orange;
+}
+.button {
+    display: flex;
+    border-radius: 3px;
+    margin:auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: white;
+    background-color: black;
+    border-style: none;
+    margin-top: 25px;
 }
