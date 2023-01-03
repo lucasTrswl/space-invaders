@@ -31,6 +31,7 @@ h3 {
 
 
 .board{
+    margin-left: 28%;
     width: 600px;
     height: 600px;
     background-color: black;
