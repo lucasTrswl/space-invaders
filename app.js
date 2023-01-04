@@ -10,7 +10,8 @@ var initial_vaisseau_coord =vaisseau.getBoundingClientRect();
 var vaisseau_coord = initial_vaisseau_coord;
 var vaisseau_common = 
     document.querySelector('.vaisseau').getBoundingClientRect();
-
+var initial_ennemi_coord = ligne3.getBoundingClientRect();
+var ennemi_coord = initial_ennemi_coord;
 
 bad = []
 var element = { name: "bad", image: "images/ennemies.png" }
@@ -62,11 +63,14 @@ document.addEventListener('keydown', (e) => {
         tir = board.innerHTML += 
         `<div class="pioupiou"><img class="tir" src="images/tir.png"></div>`;
         let pioupiou = document.querySelector(".pioupiou");
-        pioupiou.style.marginLeft = (vaisseau_coord.x -275 ) + "px";
-        pioupiou.style.bottom = "180px";
+        pioupiou.style.marginLeft = (vaisseau_coord.x -436 ) + "px";
+        pioupiou.style.bottom = "260px";
     }
     if (e.key == 'b'){
         console.log(vaisseau_coord.x);
+    }
+    if (e.key == 'c'){
+        console.log(ennemi_coord.x);
     }
 });
 
