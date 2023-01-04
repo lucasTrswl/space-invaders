@@ -83,6 +83,10 @@ h3 {
 .laser {
     background-color: orange;
 }
+.tir{
+    width: 10px;
+    height: 10px;
+}
 .button {
     display: flex;
     border-radius: 3px;
@@ -95,4 +99,8 @@ h3 {
     background-color: black;
     border-style: none;
     margin-top: 25px;
+}
+
+.pioupiou{
+    position: fixed;
 }

@@ -49,30 +49,41 @@ document.addEventListener('keydown', (e) => {
         // Pour ne pas que ça bouge la fenêtre avec
         e.preventDefault();
 
-        // Permet de monter le paddle 2
+        // Permet d'aller à gauche
         vaisseau.style.left = (Math.max(
             board_coord.left,
-            vaisseau_coord.left - window.innerHeight * 0.1
-        )+50) + 'px';
+            vaisseau_coord.left - window.innerHeight * 0.02
+        )) + 'px';
         
 
-        // Change les coordonnées du paddle vu que l'on vient de le bouger
+        // Change les coordonnées du vaisseau vu que l'on vient de le bouger
         vaisseau_coord = vaisseau.getBoundingClientRect();
     }
     if (e.key == 'ArrowRight') {
 
         // Pour ne pas que ça bouge la fenêtre avec
         e.preventDefault();
-        // Permet de descendre le paddle 2
 
+        // Permet d'aller à droite
         vaisseau.style.left =
         (Math.min(
             board_coord.right - vaisseau_common.height,
-            vaisseau_coord.left + window.innerHeight * 0.1
-        )-50) + 'px';
+            vaisseau_coord.left + window.innerHeight * 0.02
+        )) + 'px';
 
-        // Change les coordonnées du paddle vu que l'on vient de le bouger
+        // Change les coordonnées du vaisseau vu que l'on vient de le bouger
         vaisseau_coord = vaisseau.getBoundingClientRect();
     }
+    if (e.key == ' '){
+        tir = board.innerHTML += 
+        `<div class="pioupiou"><img class="tir" src="images/tir.png"></div>`;
+        let pioupiou = document.querySelector(".pioupiou");
+        pioupiou.style.marginLeft = (vaisseau_coord.x -275 ) + "px";
+        pioupiou.style.bottom = "180px";
+    }
+    if (e.key == 'b'){
+        console.log(vaisseau_coord.x);
+    }
 });
+
 
