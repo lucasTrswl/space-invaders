@@ -10,8 +10,7 @@ var initial_vaisseau_coord =vaisseau.getBoundingClientRect();
 var vaisseau_coord = initial_vaisseau_coord;
 var vaisseau_common = 
     document.querySelector('.vaisseau').getBoundingClientRect();
-var initial_ennemi_coord = ligne3.getBoundingClientRect();
-var ennemi_coord = initial_ennemi_coord;
+
 
 bad = []
 var element = { name: "bad", image: "images/ennemies.png" }
@@ -59,19 +58,41 @@ document.addEventListener('keydown', (e) => {
         // Change les coordonnées du vaisseau vu que l'on vient de le bouger
         vaisseau_coord = vaisseau.getBoundingClientRect();
     }
+    if (e.key == 'ArrowUp') {
+        if (vaisseau_coord.y>534.2){
+            // Pour ne pas que ça bouge la fenêtre avec
+            e.preventDefault();
+
+            // Permet d'aller à gauche
+            vaisseau.style.top = (Math.max(
+                board_coord.top,
+                vaisseau_coord.top - window.innerHeight * 0.02
+            )) + 'px';
+            
+
+            // Change les coordonnées du vaisseau vu que l'on vient de le bouger
+            vaisseau_coord = vaisseau.getBoundingClientRect();
+        }
+    }
+    if (e.key == 'ArrowDown') {
+        // Pour ne pas que ça bouge la fenêtre avec
+        e.preventDefault();
+
+        // Permet d'aller à droite
+        vaisseau.style.top =
+        (Math.min(
+            board_coord.bottom - vaisseau_common.height,
+            vaisseau_coord.top + window.innerHeight * 0.02
+        )) + 'px';
+
+        // Change les coordonnées du vaisseau vu que l'on vient de le bouger
+        vaisseau_coord = vaisseau.getBoundingClientRect();
+    }
     if (e.key == ' '){
         tir = board.innerHTML += 
         `<div class="pioupiou"><img class="tir" src="images/tir.png"></div>`;
-        let pioupiou = document.querySelector(".pioupiou");
-        pioupiou.style.marginLeft = (vaisseau_coord.x -436 ) + "px";
-        pioupiou.style.bottom = "260px";
-    }
-    if (e.key == 'b'){
-        console.log(vaisseau_coord.x);
-    }
-    if (e.key == 'c'){
-        console.log(ennemi_coord.x);
-    }
+        var pioupiou = document.querySelector(".pioupiou");
+        pioupiou.style.marginLeft = (vaisseau_coord.x -275 ) + "px";
+        pioupiou.style.top = (vaisseau_coord.y - 20) + "px";
+    } 
 });
-
-
