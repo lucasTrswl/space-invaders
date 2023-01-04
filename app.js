@@ -61,6 +61,13 @@ document.addEventListener('keydown', (e) => {
     if (e.key == ' '){
         tir = board.innerHTML += 
         `<div class="pioupiou"><img class="tir" src="images/tir.png"></div>`;
+        let pioupiou = document.querySelector(".pioupiou");
+        pioupiou.style.marginLeft = (vaisseau_coord.x -275 ) + "px";
+        pioupiou.style.bottom = "180px";
+    }
+    if (e.key == 'b'){
+        console.log(vaisseau_coord.x);
     }
 });
+
 
