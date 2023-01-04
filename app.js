@@ -58,5 +58,9 @@ document.addEventListener('keydown', (e) => {
         // Change les coordonnées du paddle vu que l'on vient de le bouger
         vaisseau_coord = vaisseau.getBoundingClientRect();
     }
+    if (e.key == ' '){
+        tir = board.innerHTML += 
+        `<div class="pioupiou"><img class="tir" src="images/tir.png"></div>`;
+    }
 });
 
