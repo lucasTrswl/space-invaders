@@ -1,6 +1,32 @@
 body{
     background: url(images/space.png);
 }
-.niveaux{
+#titre{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    color: white;
+    margin-top: 50px;
+}
+#jeux{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    margin-right: 25px;
+}
+
+#jeux a {
+    display:block;                
+    min-width: 90px;          
     
+    margin: 2px;
+    text-align: center;         
+    font-size: large;
+    color: #fff;                
+    text-decoration: none;          
+}
+
+#jeux a:hover {
+    opacity: 0.76;
+    color: purple;
 }
