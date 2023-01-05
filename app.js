@@ -1,62 +1,73 @@
-var ligne1 = document.querySelector(".ligne1");
-var ligne2 = document.querySelector(".ligne2");
-var ligne3 = document.querySelector(".ligne3");
+const grille = document.querySelector('.grille');
+const score = document.getElementById('score');
 
-var board = document.querySelector('.board');
-var board_coord = board.getBoundingClientRect();
+//positon du tireur dans la cadre
+let postionTireur = 202;
+let width = 15;
+let direction = 1;
+let allerDroite = true;
+let alienId;
 
-var vaisseau = document.querySelector('.vaisseau');
-var initial_vaisseau_coord =vaisseau.getBoundingClientRect();
-var vaisseau_coord = initial_vaisseau_coord;
-var vaisseau_common = 
-    document.querySelector('.vaisseau').getBoundingClientRect();
-
-
-bad = []
-var element = { name: "bad", image: "images/ennemies.png" }
-
-function gamestart(){
-    tab = [ligne1, ligne2, ligne3];
-        for (let i in tab) {
-            for (let j = 0; j < 12; j++) {
-                tab[i].innerHTML += `
-                <div class="grille"> <img src="images/ennemies.png"> </div> `;
-            }
-        }
+// creation des divs
+for(let i = 0; i < 225; i++){
+    const cadre = document.createElement('div');
+    grille.appendChild(cadre);
 }
 
-gamestart();
+// cadres des divs
+const cadres = Array.from(document.querySelectorAll('.grille div'));
 
-document.addEventListener('keydown', (e) => {
-    if (e.key == 'ArrowLeft') {
+// position des aliens dans le cadres
+const alien = [
+    0,1,2,3,4,5,6,7,8,9,
+    15,16,17,18,19,20,21,22,23,24,
+    30,31,32,33,34,35,36,37,38,39
+];
 
-        // Pour ne pas que ça bouge la fenêtre avec
-        e.preventDefault();
 
-        // Permet de monter le paddle 2
-        vaisseau.style.left = (Math.max(
-            board_coord.left,
-            vaisseau_coord.left - window.innerHeight * 0.1
-        )+50) + 'px';
-        
-
-        // Change les coordonnées du paddle vu que l'on vient de le bouger
-        vaisseau_coord = vaisseau.getBoundingClientRect();
+function ici(){
+    for(let i = 0; i < alien.length; i++){
+        cadres[alien[i]].classList.add('alien');
     }
-    if (e.key == 'ArrowRight') {
+}
+ici();
 
-        // Pour ne pas que ça bouge la fenêtre avec
-        e.preventDefault();
-        // Permet de descendre le paddle 2
-
-        vaisseau.style.left =
-        (Math.min(
-            board_coord.right - vaisseau_common.height,
-            vaisseau_coord.left + window.innerHeight * 0.1
-        )-50) + 'px';
-
-        // Change les coordonnées du paddle vu que l'on vient de le bouger
-        vaisseau_coord = vaisseau.getBoundingClientRect();
+function remove(){
+    for(let i = 0; i < alien.length; i++){
+        cadres[alien[i]].classList.remove('alien');
     }
-});
+}
+
+cadres[postionTireur].classList.add('tireur');
+
+function tireurBouge(e) {
+    cadres[postionTireur].classList.remove('tireur')
+    switch(e.key) {
+      case 'ArrowLeft':
+        if (postionTireur % width !== 0) postionTireur -=1
+        break
+      case 'ArrowRight' :
+        if (postionTireur % width < width -1) postionTireur +=1
+        break
+    }
+    squares[postionTireur].classList.add('tireur')
+  }
+  document.addEventListener('keydown', tireurBouge)
+  
+
+function alienBouge(){
+    const alienGauche = alienInvaders[0] % width === 0
+    const alienDroite = alein[alien.length - 1] % width === width -1
+    remove()
+
+    for (let i = 0; i < alien.length; i++){
+        alien[i] += 1
+    }
+
+    ici()
+
+}
+
+alienId = setInterval(alienBouge, 1000)
+
 
