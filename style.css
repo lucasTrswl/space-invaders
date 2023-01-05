@@ -1,22 +1,3 @@
-<<<<<<< Updated upstream
-h3{
-    text-align: center;
-}
-
-.grille{
-    display: flex;
-    margin: auto;
-    flex-wrap: wrap;
-    border: 1px solid black;
-    width: 300px;
-    height: 300px;
-}
-
-.grille div{
-    width: 20px;
-    height: 20px;
-    box-shadow: 1px 1px black;
-=======
 body{
     background-color: #000;
     color: #fff;
@@ -45,7 +26,6 @@ body{
     background: url(images/alien.png) no-repeat;
     background-position: center;
     background-size: contain;
->>>>>>> Stashed changes
 }
 
 .shooter {
@@ -55,13 +35,6 @@ body{
     width: 10px;
 }
 
-<<<<<<< Updated upstream
-.alien {
-    background: url(images/ennemies.png) no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-=======
 .laser {
 	background: url(images/piou.png) no-repeat;
     background-position: center;
@@ -75,4 +48,3 @@ body{
 }
 
 
->>>>>>> Stashed changes
