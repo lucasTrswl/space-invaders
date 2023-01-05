@@ -57,14 +57,17 @@ function moveShooter(e) {
   squares[currentShooterIndex].classList.remove('shooter')
   switch(e.key) {
     case 'ArrowLeft':
-      if (currentShooterIndex % width !== 0) currentShooterIndex -=1
-      break
+        e.preventDefault()
+        if (currentShooterIndex % width !== 0) currentShooterIndex -=1
+        break
     case 'ArrowRight' :
-      if (currentShooterIndex % width < width -1) currentShooterIndex +=1
-      break
+        e.preventDefault()
+        if (currentShooterIndex % width < width -1) currentShooterIndex +=1
+        break
     case 'ArrowUp':
-    if (currentShooterIndex - width >= 0) currentShooterIndex -= width
-    break
+        e.preventDefault()
+        if (currentShooterIndex - width >= 0) currentShooterIndex -= width
+        break
   }
   squares[currentShooterIndex].classList.add('shooter')
 }
@@ -143,7 +146,8 @@ function shoot(e) {
   }
   switch(e.key) {
     case ' ':
-      laserId = setInterval(moveLaser, 50 )
+        e.preventDefault()
+        laserId = setInterval(moveLaser, 50 )
   }
 }
 
