@@ -66,7 +66,11 @@ function moveShooter(e) {
         break
     case 'ArrowUp':
         e.preventDefault()
-        if (currentShooterIndex - width >= 0) currentShooterIndex -= width
+        if (currentShooterIndex - width >= 165) currentShooterIndex -= width
+        break
+    case 'ArrowDown':
+        e.preventDefault()
+        if (currentShooterIndex - width < 195) currentShooterIndex += width
         break
   }
   squares[currentShooterIndex].classList.add('shooter')
@@ -147,6 +151,8 @@ function shoot(e) {
   switch(e.key) {
     case ' ':
         e.preventDefault()
+        var laser = document.getElementById('laser')
+        laser.play()
         laserId = setInterval(moveLaser, 50 )
   }
 }
