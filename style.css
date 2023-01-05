@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 h3{
     text-align: center;
 }
@@ -15,17 +16,63 @@ h3{
     width: 20px;
     height: 20px;
     box-shadow: 1px 1px black;
+=======
+body{
+    background-color: #000;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-.tireur {
-    background: url(images/vaisseau.png);
-    transform: rotate(180deg);
+.grid {
+	width: 675px;
+	height: 675px;
+	background-color: black;
+	border-radius: 5px;
+	margin-left: 350px;
+	display: flex;
+	flex-wrap: wrap;
+    align-items: center;
+    justify-self: center;
+}
+.grid div {
+	width: 45px;
+	height: 45px;
+}
+
+.invader {
+    background: url(images/alien.png) no-repeat;
     background-position: center;
     background-size: contain;
+>>>>>>> Stashed changes
 }
 
+.shooter {
+    background: url(images/tireur.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 10px;
+}
+
+<<<<<<< Updated upstream
 .alien {
     background: url(images/ennemies.png) no-repeat;
     background-position: center;
     background-size: contain;
 }
+=======
+.laser {
+	background: url(images/piou.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.boom {
+	background: url(images/explo.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+>>>>>>> Stashed changes
