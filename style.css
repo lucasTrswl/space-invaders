@@ -1,20 +1,69 @@
-h3{
-    text-align: center;
-}
-
-.grille{
+style.css
+.grille {
     display: flex;
-    margin: auto;
     flex-wrap: wrap;
-    border: 1px solid black;
-    width: 300px;
-    height: 300px;
+    border: 1px solid #000;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    background: url(ressources/background-black.png);
+    animation: background-defile 5s linear infinite;
 }
 
-.grille div{
-    width: 20px;
-    height: 20px;
-    box-shadow: 1px 1px black;
+body{
+    color: black;
+    background: url(images/fond-spatial.jpeg);
+}
+
+@keyframes background-defile {
+    from {
+        background-position-y: 0px;
+    }
+    to {
+        background-position-y: 256px;
+    }
+}
+
+h3 {
+    text-align: center;
+    margin: 20px 0;  
+    color: white;  
+}
+
+
+.board{
+    margin: auto;
+    width: 600px;
+    height: 600px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.grille img {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.ligne1, .ligne2, .ligne3{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.vaisseau{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+}
+
+.vaisseau_2{
+    display: flex;
+    justify-content: center;
+    margin-top: 450px; 
 }
 
 .tireur {
@@ -23,9 +72,31 @@ h3{
     background-position: center;
     background-size: contain;
 }
-
 .alien {
-    background: url(images/ennemies.png) no-repeat;
+    background: url(images/ennemies.png);
     background-position: center;
     background-size: contain;
+}
+.boom {
+    background-color: red;
+}
+.laser {
+    background-color: orange;
+}
+.tir{
+    width: 10px;
+    height: 10px;
+}
+.button {
+    display: flex;
+    border-radius: 3px;
+    margin:auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: white;
+    background-color: black;
+    border-style: none;
+    margin-top: 25px;
 }
