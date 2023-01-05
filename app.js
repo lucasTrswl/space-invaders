@@ -62,6 +62,9 @@ function moveShooter(e) {
     case 'ArrowRight' :
       if (currentShooterIndex % width < width -1) currentShooterIndex +=1
       break
+      case 'ArrowUp':
+        if (currentShooterIndex - width >= 0) currentShooterIndex -= width
+        break
   }
   squares[currentShooterIndex].classList.add('shooter')
 }
@@ -140,7 +143,7 @@ function shoot(e) {
   }
   switch(e.key) {
     case ' ':
-      laserId = setInterval(moveLaser, 50)
+      laserId = setInterval(moveLaser, 50 )
   }
 }
 

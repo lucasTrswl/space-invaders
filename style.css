@@ -1,7 +1,7 @@
 body{
-    background-color: #000;
+    background: url(images/fond-spatial.jpeg) ;
     color: #fff;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P', ;
     font-size: 1.5rem;
     text-align: center;
 }
@@ -11,7 +11,7 @@ body{
 	height: 675px;
 	background-color: black;
 	border-radius: 5px;
-	margin-left: 350px;
+	margin: auto;
 	display: flex;
 	flex-wrap: wrap;
     align-items: center;
@@ -23,13 +23,13 @@ body{
 }
 
 .invader {
-    background: url(images/alien.png) no-repeat;
+    background: url(images/ennemies.png) no-repeat;
     background-position: center;
     background-size: contain;
 }
 
 .shooter {
-    background: url(images/tireur.png) no-repeat;
+    background: url(images/vaisseau.png) no-repeat;
     background-position: center;
     background-size: contain;
     width: 10px;
@@ -46,5 +46,28 @@ body{
     background-position: center;
     background-size: contain;
 }
-
+.start-button {
+    display: flex;
+    border-radius: 3px;
+    margin-top: -80px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: black;
+    background-color: white;
+    border-style: none;
+}
+.reset-button {
+    display: flex;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: black;
+    background-color: white;
+    border-style: none;
+}
 
