@@ -1,26 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
   <title>Space Invaders</title>
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-  <h3>Score :</h3>
-  <div class="board">
-    <div class="ligne1">
-      
-    </div>
-    <div class="ligne2">
-      
-    </div>
-    <div class="ligne3">
-      
-    </div>
-    <div class="vaisseau_2"><img class="vaisseau" src="images/vaisseau.png"></div>
-  </div>
-  <input class="button" type="button" onclick='window.location.reload(false)' value="Rejouer"/>
+  <h1 class="results">0</h1>
+  <div class="grid"></div>
   <script src="app.js"></script>
+  <div class="start">
+    <button class="start-button">Start Game</button>
+    <button class="reset-button">Reset Game</button>
 </body>
 </html>
