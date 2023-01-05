@@ -135,6 +135,8 @@ function shoot(e) {
       squares[currentLaserIndex].classList.remove('laser')
       squares[currentLaserIndex].classList.remove('invader')
       squares[currentLaserIndex].classList.add('boom')
+      var explosion = document.getElementById('explosion')
+      explosion.play()
 
       setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 100)
       clearInterval(laserId)
