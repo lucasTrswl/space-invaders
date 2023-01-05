@@ -57,13 +57,20 @@ function moveShooter(e) {
   squares[currentShooterIndex].classList.remove('shooter')
   switch(e.key) {
     case 'ArrowLeft':
-      if (currentShooterIndex % width !== 0) currentShooterIndex -=1
-      break
+        e.preventDefault()
+        if (currentShooterIndex % width !== 0) currentShooterIndex -=1
+        break
     case 'ArrowRight' :
-      if (currentShooterIndex % width < width -1) currentShooterIndex +=1
-      break
-      case 'ArrowUp':
-        if (currentShooterIndex - width >= 0) currentShooterIndex -= width
+        e.preventDefault()
+        if (currentShooterIndex % width < width -1) currentShooterIndex +=1
+        break
+    case 'ArrowUp':
+        e.preventDefault()
+        if (currentShooterIndex - width >= 165) currentShooterIndex -= width
+        break
+    case 'ArrowDown':
+        e.preventDefault()
+        if (currentShooterIndex - width < 195) currentShooterIndex += width
         break
   }
   squares[currentShooterIndex].classList.add('shooter')
@@ -128,6 +135,8 @@ function shoot(e) {
       squares[currentLaserIndex].classList.remove('laser')
       squares[currentLaserIndex].classList.remove('invader')
       squares[currentLaserIndex].classList.add('boom')
+      var explosion = document.getElementById('explosion')
+      explosion.play()
 
       setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 100)
       clearInterval(laserId)
@@ -143,7 +152,10 @@ function shoot(e) {
   }
   switch(e.key) {
     case ' ':
-      laserId = setInterval(moveLaser, 50 )
+        e.preventDefault()
+        var laser = document.getElementById('laser')
+        laser.play()
+        laserId = setInterval(moveLaser, 50 )
   }
 }
 
