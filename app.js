@@ -1,25 +1,100 @@
-var ligne1 = document.querySelector(".ligne1");
-var ligne2 = document.querySelector(".ligne2");
-var ligne3 = document.querySelector(".ligne3"); 
 
-var alien = [
-    0,1,2,3,4,5,6,7,8,9,10,11,12,
-    21,22,23,24,25,26,27,28,29,30,31,32,
-    41,42,43,44,45,46,47,48,49,50,51,52
 
-]
+var direction = 1;
+
+
+
+var aliens = [
+  4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+  24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+  44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55
+]; 
+
+var grille = document.querySelector('.grille');
+
+var score = document.querySelector(".results");
 
 var incr = 0;
+for (i = 0; i < 240; i++) {
+  var carre = document.createElement("div");
 
-for(i = 0; i < 53; i++){
-    const square = document.createElement('div');
-    grid.appenChild(square);
+  if (incr == 0) {
+    carre.classList.add('left');
+  }
+
+  if (incr == 19) {
+    carre.classList.add('right');
+  }
+  grille.appendChild(carre);
+
+  incr++;
+  if (incr == 20)
+    incr = 0;
+}
+
+let allDiv = document.querySelectorAll('.grille div');
+
+aliens.forEach(invader => {
+  allDiv[invader].classList.add('alien');
+})
+
+
+let fromLeft  = true;
+let fromRight = true;
+
+function moveInvaders() {
+
+
+for(i = 0; i<aliens.length; i++){
+
+  if( allDiv[aliens[i]].classList.contains('right')){
+      if( fromLeft == true){
+        direction = 20;
+        fromLeft = false;
+      }else{
+        direction = -1;
+        fromLeft = true;
+      }
+  }
+
+
+  if( allDiv[aliens[i]].classList.contains('left')){
+    if( fromRight == true){
+      direction = 20;
+      fromRight = false;
+    }else{
+      direction = +1;
+      fromRight = true;
+    }
 }
 
 
-console.log(square);
-var board = document.querySelector('.board');
-var board_coord = board.getBoundingClientRect();
+
+}
+
+
+
+  for (i = 0; i < aliens.length; i++) {
+    allDiv[aliens[i]].classList.remove('alien');
+  }
+
+
+  for (i = 0; i < aliens.length; i++) {
+    aliens[i] += direction;
+  }
+
+  for (i = 0; i < aliens.length; i++) {
+    allDiv[aliens[i]].classList.add('alien');
+  }
+
+  if (incr == 20)
+    carre.classList.add('right');
+
+}
+
+
+setInterval(moveInvaders, 400);
+
 
 var vaisseau = document.querySelector('.vaisseau');
 var initial_vaisseau_coord =vaisseau.getBoundingClientRect();

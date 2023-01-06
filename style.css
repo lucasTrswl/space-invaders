@@ -1,18 +1,13 @@
-style.css
 .grille {
     display: flex;
     flex-wrap: wrap;
     border: 1px solid #000;
     width: 500px;
     height: 500px;
-    margin: auto;
+    margin: 0 auto;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    background: url(ressources/background-black.png);
+    /*background: url(ressources/background-black.png);*/
     animation: background-defile 5s linear infinite;
-}
-
-body{
-    color: black;
 }
 
 @keyframes background-defile {
@@ -26,46 +21,13 @@ body{
 
 h3 {
     text-align: center;
-    margin: 20px 0;    
+    margin: 20px 0;
 }
-
-
-
-.board{
-    margin: auto;
-    width: 600px;
-    height: 600px;
-    background-color: black;
-    border-radius: 5px;
-}
-
-
-.grille img {
+.grille div {
     width: 25px;
     height: 25px;
-    display: flex;
-    flex-direction: row;
+	
 }
-
-.ligne1, .ligne2, .ligne3{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    margin-top: 10px;
-}
-
-.vaisseau{
-    position: fixed;
-    width: 50px;
-    height: 50px;
-}
-
-.vaisseau_2{
-    display: flex;
-    justify-content: center;
-    margin-top: 450px; 
-}
-
 .tireur {
     background: url(images/vaisseau.png);
     transform: rotate(180deg);
@@ -83,6 +45,9 @@ h3 {
 .laser {
     background-color: orange;
 }
+
+
+
 .tir{
     width: 10px;
     height: 10px;
