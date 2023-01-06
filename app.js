@@ -10,6 +10,7 @@ let invadersId // L'ID de l'intervalle de mouvement des envahisseurs
 let goingRight = true // Si les envahisseurs se déplacent vers la droite ou non
 let aliensRemoved = [] // Les index des envahisseurs qui ont été enlevés
 let results = 0 // Le score du joueur
+var game = true
 
 
 //var incr = 0;
@@ -51,7 +52,7 @@ temp = 0
 // On crée un tableau d'index des envahisseurs
 let alienInvaders =[]
 
-// On parcourt les index de 0 à 46 (il y a 46 envahisseurs)
+// On parcourt les index de 0 à 46 
 for (let i = 0; i < 46; i++) {
   // Si l'index est inférieur ou égal à 1, on passe au suivant
   if (i<=1){
@@ -136,8 +137,11 @@ function moveShooter(e) {
     squares[currentShooterIndex].classList.add('shooter')
 }
 
-// On écoute les événements 'keydown' (touche pressée) sur le document
-document.addEventListener('keydown', moveShooter)
+if (game==true){
+    // On écoute les événements 'keydown' (touche pressée) sur le document
+    document.addEventListener('keydown', moveShooter)
+}
+
 
 
 //////////////////////
@@ -268,6 +272,16 @@ setInterval(moveInvaders, 400);
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(invadersId)
+        reset.style.visibility = "visible"
+        squares[currentShooterIndex].classList.remove('shooter')
+        // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
+        squares[currentShooterIndex].classList.add('boom')
+
+        var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
+        explosion.play() // On joue l'audio
+
+        // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
+        setTimeout(()=> squares[currentShooterIndex].classList.remove('boom'), 100)
     }
 
     // Pour chaque envahisseur
@@ -277,6 +291,16 @@ setInterval(moveInvaders, 400);
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(invadersId)
+        reset.style.visibility = "visible"
+        squares[currentShooterIndex].classList.remove('shooter')
+        // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
+        squares[currentShooterIndex].classList.add('boom')
+
+        var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
+        explosion.play() // On joue l'audio
+
+        // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
+        setTimeout(()=> squares[currentShooterIndex].classList.remove('boom'), 100)
         }
     }
 
@@ -285,6 +309,7 @@ setInterval(moveInvaders, 400);
         // Affiche 'YOU WIN' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'YOU WIN'
         clearInterval(invadersId)
+        reset.style.visibility = "visible"
     }  
 
 
@@ -309,8 +334,8 @@ function shoot(e) {
         currentLaserIndex -= width
 
         // Ajoute la classe 'laser' à la div correspondant à l'index 'currentLaserIndex'
-        squares[currentLaserIndex].classList.add('laser')      
-    
+        squares[currentLaserIndex].classList.add('laser')  
+            
         // Si la div correspondant à l'index 'currentLaserIndex' contient la classe 'invader'
         if (squares[currentLaserIndex].classList.contains('invader')) {
 

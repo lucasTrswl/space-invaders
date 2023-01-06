@@ -27,7 +27,7 @@ temp = 0
 let alienInvaders =[]
 
 // On parcourt les index de 0 à 46 (il y a 46 envahisseurs)
-for (let i = 0; i < 46; i++) {
+for (let i = 0; i < 74; i++) {
   // Si l'index est inférieur ou égal à 1, on passe au suivant
   if (i<=1){
     continue
@@ -158,6 +158,16 @@ if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
     // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
     resultsDisplay.innerHTML = 'GAME OVER'
     clearInterval(invadersId)
+    reset.style.visibility = "visible"
+    squares[currentShooterIndex].classList.remove('shooter')
+    // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
+    squares[currentShooterIndex].classList.add('boom')
+
+    var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
+    explosion.play() // On joue l'audio
+
+    // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
+    setTimeout(()=> squares[currentShooterIndex].classList.remove('boom'), 100)
   }
   
   // Pour chaque envahisseur
@@ -167,6 +177,16 @@ if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
       // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
       resultsDisplay.innerHTML = 'GAME OVER'
       clearInterval(invadersId)
+      reset.style.visibility = "visible"
+      squares[currentShooterIndex].classList.remove('shooter')
+      // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
+      squares[currentShooterIndex].classList.add('boom')
+
+      var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
+      explosion.play() // On joue l'audio
+
+      // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
+      setTimeout(()=> squares[currentShooterIndex].classList.remove('boom'), 100)
     }
   }
   
@@ -175,11 +195,12 @@ if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
     // Affiche 'YOU WIN' et arrête le déplacement des envahisseurs
     resultsDisplay.innerHTML = 'YOU WIN'
     clearInterval(invadersId)
+    reset.style.visibility = "visible"
   }  
 }
 
 // Démarre l'intervalle de déplacement des envahisseurs toutes les 500ms
-invadersId = setInterval(moveInvaders, 500)
+invadersId = setInterval(moveInvaders, 300)
 
 // Définit la fonction 'shoot' qui prend en argument un événement 'e'
 function shoot(e) {
