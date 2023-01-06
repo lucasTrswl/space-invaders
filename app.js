@@ -73,32 +73,42 @@ function remove() {
 // Ajoute la classe 'shooter' (tireur) à la case actuelle de l'espace
 squares[currentShooterIndex].classList.add('shooter')
 
+
 // Déplace le vaisseau en fonction de la touche pressée par le joueur
 function moveShooter(e) {
-  squares[currentShooterIndex].classList.remove('shooter')
-  switch(e.key) {
-    case 'ArrowLeft': // Si la flèche gauche est pressée
-        e.preventDefault() // Permet de ne pas bouger la fenêtre
-        // Si l'index de la case actuelle du vaisseau n'est pas un multiple de la largeur de la grille, on déplace le vaisseau vers la gauche
-        if (currentShooterIndex % width !== 0) currentShooterIndex -=1
-        break
-    case 'ArrowRight' : // Si la flèche droite est pressée
-        e.preventDefault() 
-        // Si l'index de la case actuelle du vaisseau n'est pas un multiple de la largeur de la grille - 1, on déplace le vaisseau vers la droite
-        if (currentShooterIndex % width < width -1) currentShooterIndex +=1
-        break
-    case 'ArrowUp': // Si la flèche du haut est pressée
-        e.preventDefault()
-        // Si la différence de l'index de la case actuelle du vaisseau et de la largeur de la grille est supèrieure ou égale à 165 on déplace le vaisseau vers le haut
-        if (currentShooterIndex - width >= 165) currentShooterIndex -= width
-        break
-    case 'ArrowDown': // Si la flèche du bas est pressée
-        e.preventDefault()
-        // Si la différence de l'index de la case actuelle du vaisseau et de la largeur de la grille est infèrieure à 195 on déplace le vaisseau vers le bas
-        if (currentShooterIndex - width < 195) currentShooterIndex += width
-        break
-  }
-  squares[currentShooterIndex].classList.add('shooter')
+    squares[currentShooterIndex].classList.remove('shooter')
+    switch(e.key) {
+        case 'ArrowLeft': // Si la flèche gauche est pressée
+            console.log(currentShooterIndex)
+            e.preventDefault() // Permet de ne pas bouger la fenêtre
+            // Si l'index de la case actuelle du vaisseau n'est pas un multiple de la largeur de la grille, on déplace le vaisseau vers la gauche
+            if (currentShooterIndex % width !== 0){
+                currentShooterIndex -=1
+            }
+            break
+        case 'ArrowRight' : // Si la flèche droite est pressée
+            e.preventDefault() 
+            // Si l'index de la case actuelle du vaisseau n'est pas un multiple de la largeur de la grille - 1, on déplace le vaisseau vers la droite
+            if (currentShooterIndex % width < width -1){
+                currentShooterIndex +=1
+            } 
+            break
+        case 'ArrowUp': // Si la flèche du haut est pressée
+            e.preventDefault()
+            // Si la différence de l'index de la case actuelle du vaisseau et de la largeur de la grille est supèrieure ou égale à 165 on déplace le vaisseau vers le haut
+            if (currentShooterIndex - width >= 165){
+                currentShooterIndex -= width
+            } 
+            break
+        case 'ArrowDown': // Si la flèche du bas est pressée
+            e.preventDefault()
+            // Si la différence de l'index de la case actuelle du vaisseau et de la largeur de la grille est infèrieure à 195 on déplace le vaisseau vers le bas
+            if (currentShooterIndex < 210){
+                currentShooterIndex += width
+            }
+            break
+    }
+    squares[currentShooterIndex].classList.add('shooter')
 }
 
 // On écoute les événements 'keydown' (touche pressée) sur le document
@@ -111,71 +121,71 @@ function moveInvaders() {
 
     // Vérifie si l'envahisseur le plus à droite se trouve sur le bord droit de la grille
     const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width -1
-  
+
     // Enlève la classe 'invader' de tous les envahisseurs
     remove()
-  
+
     // Si l'envahisseur le plus à droite se trouve sur le bord droit de la grille et qu'ils se déplacent vers la droite
     if (rightEdge && goingRight) {
-      // Pour chaque envahisseur
-      for (let i = 0; i < alienInvaders.length; i++) {
+        // Pour chaque envahisseur
+        for (let i = 0; i < alienInvaders.length; i++) {
 
-        // On ajoute la largeur de la grille + 1 à l'index de l'envahisseur
-        alienInvaders[i] += width +1
+            // On ajoute la largeur de la grille + 1 à l'index de l'envahisseur
+            alienInvaders[i] += width +1
 
-        // On change la direction de déplacement des envahisseurs
-        direction = -1
+            // On change la direction de déplacement des envahisseurs
+            direction = -1
 
-        // On indique qu'ils ne se déplacent plus vers la droite
-        goingRight = false
-      }
+            // On indique qu'ils ne se déplacent plus vers la droite
+            goingRight = false
+        }
     }
 
- // Si l'envahisseur le plus à gauche se trouve sur le bord gauche de la grille et qu'ils ne se déplacent pas vers la droite
-if(leftEdge && !goingRight) {
+    // Si l'envahisseur le plus à gauche se trouve sur le bord gauche de la grille et qu'ils ne se déplacent pas vers la droite
+    if(leftEdge && !goingRight) {
+        // Pour chaque envahisseur
+        for (let i = 0; i < alienInvaders.length; i++) {
+            // On ajoute la largeur de la grille - 1 à l'index de l'envahisseur
+            alienInvaders[i] += width -1
+            // On change la direction de déplacement des envahisseurs
+            direction = 1
+            // On indique qu'ils se déplacent maintenant vers la droite
+            goingRight = true
+        }
+    }
+
     // Pour chaque envahisseur
     for (let i = 0; i < alienInvaders.length; i++) {
-      // On ajoute la largeur de la grille - 1 à l'index de l'envahisseur
-      alienInvaders[i] += width -1
-      // On change la direction de déplacement des envahisseurs
-      direction = 1
-      // On indique qu'ils se déplacent maintenant vers la droite
-      goingRight = true
+        // On ajoute la direction de déplacement à l'index de l'envahisseur
+        alienInvaders[i] += direction
     }
-  }
-  
-  // Pour chaque envahisseur
-  for (let i = 0; i < alienInvaders.length; i++) {
-    // On ajoute la direction de déplacement à l'index de l'envahisseur
-    alienInvaders[i] += direction
-  }
-  
-  // Dessine les envahisseurs
-  draw()
-  
-// Si l'envahisseur et le tireur se trouvent à la même position
-if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
-    // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
-    resultsDisplay.innerHTML = 'GAME OVER'
-    clearInterval(invadersId)
-  }
-  
-  // Pour chaque envahisseur
-  for (let i = 0; i < alienInvaders.length; i++) {
-    // Si l'index de l'envahisseur dépasse la longueur de la grille
-    if(alienInvaders[i] > (squares.length)) {
-      // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
-      resultsDisplay.innerHTML = 'GAME OVER'
-      clearInterval(invadersId)
+
+    // Dessine les envahisseurs
+    draw()
+
+    // Si l'envahisseur et le tireur se trouvent à la même position
+    if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
+        // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
+        resultsDisplay.innerHTML = 'GAME OVER'
+        clearInterval(invadersId)
     }
-  }
-  
-  // Si tous les envahisseurs ont été enlevés
-  if (aliensRemoved.length === alienInvaders.length) {
-    // Affiche 'YOU WIN' et arrête le déplacement des envahisseurs
-    resultsDisplay.innerHTML = 'YOU WIN'
-    clearInterval(invadersId)
-  }  
+
+    // Pour chaque envahisseur
+    for (let i = 0; i < alienInvaders.length; i++) {
+        // Si l'index de l'envahisseur dépasse la longueur de la grille
+        if(alienInvaders[i] > (squares.length)) {
+        // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
+        resultsDisplay.innerHTML = 'GAME OVER'
+        clearInterval(invadersId)
+        }
+    }
+
+    // Si tous les envahisseurs ont été enlevés
+    if (aliensRemoved.length === alienInvaders.length) {
+        // Affiche 'YOU WIN' et arrête le déplacement des envahisseurs
+        resultsDisplay.innerHTML = 'YOU WIN'
+        clearInterval(invadersId)
+    }  
 }
 
 // Démarre l'intervalle de déplacement des envahisseurs toutes les 500ms
@@ -192,62 +202,61 @@ function shoot(e) {
     // Définit la fonction 'moveLaser'
     function moveLaser() {
 
-      // Enlève la classe 'laser' de la div correspondant à l'index 'currentLaserIndex'
-      squares[currentLaserIndex].classList.remove('laser')
-
-      // Décrémente 'currentLaserIndex' de la largeur de la grille
-      currentLaserIndex -= width
-
-      // Ajoute la classe 'laser' à la div correspondant à l'index 'currentLaserIndex'
-      squares[currentLaserIndex].classList.add('laser')
-  
-      // Si la div correspondant à l'index 'currentLaserIndex' contient la classe 'invader'
-      if (squares[currentLaserIndex].classList.contains('invader')) {
-
-        // Enlève les classes 'laser' et 'invader' de la div correspondant à l'index 'currentLaserIndex'
+        // Enlève la classe 'laser' de la div correspondant à l'index 'currentLaserIndex'
         squares[currentLaserIndex].classList.remove('laser')
-        squares[currentLaserIndex].classList.remove('invader')
 
-        // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
-        squares[currentLaserIndex].classList.add('boom')
+        // Décrémente 'currentLaserIndex' de la largeur de la grille
+        currentLaserIndex -= width
 
-        var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
-        explosion.play() // On joue l'audio
-  
-      // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
-      setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 100)
+        // Ajoute la classe 'laser' à la div correspondant à l'index 'currentLaserIndex'
+        squares[currentLaserIndex].classList.add('laser')      
+    
+        // Si la div correspondant à l'index 'currentLaserIndex' contient la classe 'invader'
+        if (squares[currentLaserIndex].classList.contains('invader')) {
 
-      // Arrête l'intervalle 'laserId'
-      clearInterval(laserId)
-  
-      // Déclare une variable 'alienRemoved' qui vaut l'index de l'envahisseur dans le tableau 'alienInvaders'
-      const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
+            // Enlève les classes 'laser' et 'invader' de la div correspondant à l'index 'currentLaserIndex'
+            squares[currentLaserIndex].classList.remove('laser')
+            squares[currentLaserIndex].classList.remove('invader')
 
-      // Ajoute l'envahisseur à la liste des envahisseurs retirés
-      aliensRemoved.push(alienRemoved)
+            // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
+            squares[currentLaserIndex].classList.add('boom')
 
-      // Incrémente les résultats de 1
-      results++
+            var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
+            explosion.play() // On joue l'audio
 
-      // Affiche les résultats dans le div avec la classe 'results'
-      resultsDisplay.innerHTML = results
+            // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
+            setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 100)
 
-      // Affiche les envahisseurs retirés dans la console
-      console.log(aliensRemoved)
-      }
-  
+            // Arrête l'intervalle 'laserId'
+            clearInterval(laserId)
+        
+            // Déclare une variable 'alienRemoved' qui vaut l'index de l'envahisseur dans le tableau 'alienInvaders'
+            const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
+
+            // Ajoute l'envahisseur à la liste des envahisseurs retirés
+            aliensRemoved.push(alienRemoved)
+
+            // Incrémente les résultats de 1
+            results++
+
+            // Affiche les résultats dans le div avec la classe 'results'
+            resultsDisplay.innerHTML = results
+
+            // Affiche les envahisseurs retirés dans la console
+            console.log(aliensRemoved)
+        }
     }
 
-  // Si l'événement 'e' est la touche d'espacement (' ')
+    // Si l'événement 'e' est la touche d'espacement (' ')
     switch(e.key) {
         case ' ':
         // Définit une variable 'laserId' qui vaut l'intervalle qui exécute la fonction 'moveLaser' toutes les 50ms
         laserId = setInterval(moveLaser, 50)
 
-        var laser = document.getElementById('laser') // on récupère l'audio pour le laser du vaisseau
-        laser.play() // On joue l'audio
+        var tir = document.getElementById('tir') // on récupère l'audio pour le laser du vaisseau
+        tir.play() // On joue l'audio
     }
-  }
+}
 
-  // Ajoute un écouteur d'événement 'keydown' qui exécute la fonction 'shoot'
-  document.addEventListener('keydown', shoot)
+// Ajoute un écouteur d'événement 'keydown' qui exécute la fonction 'shoot'
+document.addEventListener('keydown', shoot)
