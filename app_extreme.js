@@ -158,6 +158,15 @@ if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
     // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
     resultsDisplay.innerHTML = 'GAME OVER'
     clearInterval(invadersId)
+    squares[currentShooterIndex].classList.remove('shooter')
+    // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
+    squares[currentShooterIndex].classList.add('boom')
+
+    var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
+    explosion.play() // On joue l'audio
+
+    // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
+    setTimeout(()=> squares[currentShooterIndex].classList.remove('boom'), 100)
   }
   
   // Pour chaque envahisseur
@@ -167,6 +176,15 @@ if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
       // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
       resultsDisplay.innerHTML = 'GAME OVER'
       clearInterval(invadersId)
+      squares[currentShooterIndex].classList.remove('shooter')
+      // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
+      squares[currentShooterIndex].classList.add('boom')
+
+      var explosion = document.getElementById('explosion') // on récupère l'audio pour l'explosion des vaisseau
+      explosion.play() // On joue l'audio
+
+      // Attend 100ms avant de retirer la classe 'boom' de la div correspondant à l'index 'currentLaserIndex'
+      setTimeout(()=> squares[currentShooterIndex].classList.remove('boom'), 100)
     }
   }
   
