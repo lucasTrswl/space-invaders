@@ -47,18 +47,6 @@ body{
     background-position: center;
     background-size: contain;
 }
-.start-button {
-    display: flex;
-    border-radius: 3px;
-    margin-top: -80px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    color: black;
-    background-color: white;
-    border-style: none;
-}
 .reset-button {
     display: flex;
     border-radius: 3px;
@@ -70,5 +58,6 @@ body{
     color: black;
     background-color: white;
     border-style: none;
+    visibility: hidden;
 }
 

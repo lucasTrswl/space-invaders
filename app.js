@@ -168,6 +168,8 @@ function moveInvaders() {
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(invadersId)
+        let reset = document.querySelector('.reset-button')
+        reset.style.visibility = "visible"
     }
 
     // Pour chaque envahisseur
@@ -177,6 +179,8 @@ function moveInvaders() {
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(invadersId)
+        let reset = document.querySelector('.reset-button')
+        reset.style.visibility = "visible"
         }
     }
 
@@ -185,6 +189,8 @@ function moveInvaders() {
         // Affiche 'YOU WIN' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'YOU WIN'
         clearInterval(invadersId)
+        let reset = document.querySelector('.reset-button')
+        reset.style.visibility = "visible"
     }  
 }
 
