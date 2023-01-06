@@ -172,6 +172,7 @@ function moveInvaders() {
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(invadersId)
+        reset.style.visibility = "visible"
         squares[currentShooterIndex].classList.remove('shooter')
         // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
         squares[currentShooterIndex].classList.add('boom')
@@ -190,6 +191,7 @@ function moveInvaders() {
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(invadersId)
+        reset.style.visibility = "visible"
         squares[currentShooterIndex].classList.remove('shooter')
         // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
         squares[currentShooterIndex].classList.add('boom')
@@ -207,7 +209,7 @@ function moveInvaders() {
         // Affiche 'YOU WIN' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'YOU WIN'
         clearInterval(invadersId)
-        
+        reset.style.visibility = "visible"
     }  
 }
 
