@@ -51,9 +51,9 @@ body{
 }
 .reset-button {
     font-family: 'ArcadeClassic', sans-serif;
-    display: flex;
+    font-size: 20px;
+    margin-left: 1px;
     border-radius: 3px;
-    margin-top: 10px;
     padding-left: 22px;
     padding-right: 22px;
     padding-top: 8px;
@@ -64,8 +64,10 @@ body{
     visibility: hidden;
 }
 .menu{
+    margin-top: 10px;
     font-family: 'ArcadeClassic', sans-serif;
     font-size: 20px;
+    margin-right: 1px;
     padding-left: 22px;
     padding-right: 22px;
     padding-top: 8px;
