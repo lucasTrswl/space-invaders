@@ -171,8 +171,9 @@ function moveInvaders() {
     if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
-        clearInterval(invadersId)
+        let reset = document.querySelector('.reset-button')
         reset.style.visibility = "visible"
+        clearInterval(invadersId)
         squares[currentShooterIndex].classList.remove('shooter')
         // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
         squares[currentShooterIndex].classList.add('boom')
@@ -191,6 +192,7 @@ function moveInvaders() {
         // Affiche 'GAME OVER' et arrête le déplacement des envahisseurs
         resultsDisplay.innerHTML = 'GAME OVER'
         clearInterval(invadersId)
+        let reset = document.querySelector('.reset-button')
         reset.style.visibility = "visible"
         squares[currentShooterIndex].classList.remove('shooter')
         // Ajoute la classe 'boom' à la div correspondant à l'index 'currentLaserIndex'
