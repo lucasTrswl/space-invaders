@@ -1,0 +1,43 @@
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
+body{
+    background: url(images/space.png);
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 100px;
+   
+}
+#titre{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    color: white;
+    margin-top: 50px;
+}
+#jeux{
+    display: flex;
+    justify-content: center;
+    margin-right: 25px;
+}
+
+#jeux a {
+    display:block;                
+    min-width: 90px;          
+    margin: 15px;
+    text-align: center;         
+    font-size: 40px;
+    color: #fff;                
+    text-decoration: none;          
+}
+
+#niveau1:hover {
+    opacity: 0.76;
+    color: rgb(0, 255, 0);
+}
+#niveau2:hover {
+    opacity: 0.76;
+    color: rgb(250, 125, 0);
+}
+#niveau3:hover {
+    opacity: 0.76;
+    color: rgb(255, 0, 0);
+}
+
