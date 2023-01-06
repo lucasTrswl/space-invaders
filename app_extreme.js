@@ -27,7 +27,7 @@ temp = 0
 let alienInvaders =[]
 
 // On parcourt les index de 0 à 46 (il y a 46 envahisseurs)
-for (let i = 0; i < 46; i++) {
+for (let i = 0; i < 74; i++) {
   // Si l'index est inférieur ou égal à 1, on passe au suivant
   if (i<=1){
     continue
@@ -179,7 +179,7 @@ if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
 }
 
 // Démarre l'intervalle de déplacement des envahisseurs toutes les 500ms
-invadersId = setInterval(moveInvaders, 500)
+invadersId = setInterval(moveInvaders, 300)
 
 // Définit la fonction 'shoot' qui prend en argument un événement 'e'
 function shoot(e) {

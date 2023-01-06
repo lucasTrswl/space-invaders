@@ -1,6 +1,8 @@
 @import url('https://fonts.cdnfonts.com/css/arcade-classic');
 body{
-    background: url(images/fond-spatial.jpeg) ;
+    background: url(images/space_fond.jpeg) ;
+    background-repeat: no-repeat;
+    background-size: 1600px;
     color: #fff;
     font-family: 'ArcadeClassic', sans-serif;
     font-size: 1.5rem;
@@ -10,7 +12,7 @@ body{
 .grid {
 	width: 675px;
 	height: 675px;
-	background-color: black;
+	border: white solid;
 	border-radius: 5px;
 	margin: auto;
 	display: flex;
@@ -48,6 +50,7 @@ body{
     background-size: contain;
 }
 .reset-button {
+    font-family: 'ArcadeClassic', sans-serif;
     display: flex;
     border-radius: 3px;
     margin-top: 10px;
@@ -60,4 +63,14 @@ body{
     border-style: none;
     visibility: hidden;
 }
-
+.menu{
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: ;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: black;
+    background-color: white;
+    border-style: none;
+}

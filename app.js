@@ -195,7 +195,7 @@ function moveInvaders() {
 }
 
 // Démarre l'intervalle de déplacement des envahisseurs toutes les 500ms
-invadersId = setInterval(moveInvaders, 500)
+invadersId = setInterval(moveInvaders, 800)
 
 // Définit la fonction 'shoot' qui prend en argument un événement 'e'
 function shoot(e) {
