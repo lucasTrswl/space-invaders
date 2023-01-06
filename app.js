@@ -27,7 +27,7 @@ temp = 0
 // On crée un tableau d'index des envahisseurs
 let alienInvaders =[]
 
-// On parcourt les index de 0 à 46 (il y a 46 envahisseurs)
+// On parcourt les index de 0 à 46 
 for (let i = 0; i < 46; i++) {
   // Si l'index est inférieur ou égal à 1, on passe au suivant
   if (i<=1){
