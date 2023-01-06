@@ -1,5 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
 body{
     background: url(images/space.png);
+    font-family: 'ArcadeClassic', sans-serif;
+    font-size: 100px;
+   
 }
 #titre{
     display: flex;
@@ -11,22 +15,29 @@ body{
 #jeux{
     display: flex;
     justify-content: center;
-    margin-top: 200px;
     margin-right: 25px;
 }
 
 #jeux a {
     display:block;                
     min-width: 90px;          
-    
-    margin: 2px;
+    margin: 15px;
     text-align: center;         
-    font-size: large;
+    font-size: 40px;
     color: #fff;                
     text-decoration: none;          
 }
 
-#jeux a:hover {
+#niveau1:hover {
     opacity: 0.76;
-    color: purple;
+    color: rgb(0, 255, 0);
 }
+#niveau2:hover {
+    opacity: 0.76;
+    color: rgb(250, 125, 0);
+}
+#niveau3:hover {
+    opacity: 0.76;
+    color: rgb(255, 0, 0);
+}
+
