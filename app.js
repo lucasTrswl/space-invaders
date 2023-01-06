@@ -237,7 +237,7 @@ function shoot(e) {
             aliensRemoved.push(alienRemoved)
 
             // Incrémente les résultats de 1
-            results++
+            results+=100
 
             // Affiche les résultats dans le div avec la classe 'results'
             resultsDisplay.innerHTML = results
